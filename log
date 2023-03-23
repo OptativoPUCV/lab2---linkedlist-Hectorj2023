@@ -199,3 +199,32 @@ Thu 23 Mar 2023 04:02:46 PM UTC:
  tests:  10|2
 total_score: 45/70
 ff5d0b3
+Thu 23 Mar 2023 04:11:39 PM UTC: 
+ list.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+In file included from test.c:5:
+list.c: In function ‘pushCurrent’:
+list.c:97:16: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+   97 |         return NULL; // la lista o el current no existen
+      |                ^~~~
+list.c:95:6: note: declared here
+   95 | void pushCurrent(List * list, void * data) {
+      |      ^~~~~~~~~~~
+list.c:100:11: error: ‘data’ redeclared as different kind of symbol
+  100 |     void* data = nodeToRemove->data;
+      |           ^~~~
+list.c:95:38: note: previous definition of ‘data’ was here
+   95 | void pushCurrent(List * list, void * data) {
+      |                               ~~~~~~~^~~~
+list.c:115:9: error: ‘List’ {aka ‘struct List’} has no member named ‘size’
+  115 |     list->size--;
+      |         ^~
+list.c:116:12: error: ‘return’ with a value, in function returning void [-Werror=return-type]
+  116 |     return data;
+      |            ^~~~
+list.c:95:6: note: declared here
+   95 | void pushCurrent(List * list, void * data) {
+      |      ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+5775b96

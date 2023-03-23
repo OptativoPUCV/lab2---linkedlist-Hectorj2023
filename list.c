@@ -73,7 +73,8 @@ void * prevList(List * list) {
 
 void pushFront(List * list, void * data) {
 
-    Node * newNode = createNode(data);    
+    Node * newNode = createNode(data);
+  
     if (list->head == NULL) {             
         list->head = newNode;
         list->tail = newNode;
@@ -87,9 +88,32 @@ void pushFront(List * list, void * data) {
 void pushBack(List * list, void * data) {
     list->current = list->tail;
     pushCurrent(list,data);
+
+  
 }
 
 void pushCurrent(List * list, void * data) {
+      if (list == NULL || list->current == NULL) {
+        return NULL; // la lista o el current no existen
+    }
+    Node* nodeToRemove = list->current;
+    void* data = nodeToRemove->data;
+    list->current = nodeToRemove->next;
+    if (nodeToRemove == list->head) {
+        list->head = nodeToRemove->next;
+    }
+    if (nodeToRemove == list->tail) {
+        list->tail = nodeToRemove->prev;
+    }
+    if (nodeToRemove->prev != NULL) {
+        nodeToRemove->prev->next = nodeToRemove->next;
+    }
+    if (nodeToRemove->next != NULL) {
+        nodeToRemove->next->prev = nodeToRemove->prev;
+    }
+    free(nodeToRemove);
+    list->size--;
+    return data;
 }
 
 void * popFront(List * list) {
