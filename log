@@ -183,3 +183,13 @@ Thu 23 Mar 2023 03:57:13 PM UTC:
  tests:  9|3
 total_score: 35/70
 bc426ec
+Thu 23 Mar 2023 04:02:36 PM UTC: 
+ list.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+In file included from test.c:5:
+list.c:75:8: error: ‘pushFront’ defined but not used [-Werror=unused-function]
+   75 |   void pushFront(List * list, void * data) {
+      |        ^~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+dd58d73
