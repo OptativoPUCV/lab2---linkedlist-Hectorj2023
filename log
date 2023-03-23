@@ -193,3 +193,9 @@ list.c:75:8: error: ‘pushFront’ defined but not used [-Werror=unused-functio
 cc1: all warnings being treated as errors
 Compilation failed
 dd58d73
+Thu 23 Mar 2023 04:02:46 PM UTC: 
+ list.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  10|2
+total_score: 45/70
+ff5d0b3
